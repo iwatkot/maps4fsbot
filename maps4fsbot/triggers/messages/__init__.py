@@ -1,0 +1,1 @@
+from maps4fsbot.triggers.messages.message_errors import ErrorsTrigger

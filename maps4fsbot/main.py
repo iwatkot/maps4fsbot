@@ -1,18 +1,17 @@
 import discord
 
 from maps4fsbot.config import DISCORD_TOKEN
+from maps4fsbot.triggers.messages.message_base import MessageTrigger
 
 
 class MyClient(discord.Client):
     async def on_ready(self):
-        print(f"Logged on as {self.user}!")
+        pass
 
     async def on_message(self, message):
-        print(f"Message from {message.author}: {message.content}")
-        # Reply to the message
-
-        if message.content == "ping":
-            await message.channel.send("pong")
+        response = MessageTrigger.get_response(message)
+        if response:
+            await message.channel.send(f"{message.author.mention} {response}")
 
 
 intents = discord.Intents.default()
