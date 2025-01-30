@@ -1,3 +1,5 @@
+"""Configuration for the bot."""
+
 import os
 
 try:
@@ -13,9 +15,13 @@ if not DISCORD_TOKEN:
 
 
 class Roles:
+    """Roles for the bot."""
+
     admin = "Admin"
     moderator = "Moderator"
 
 
 class Channels:
+    """Channels for the bot."""
+
     suggest_feature = "suggest-feature"

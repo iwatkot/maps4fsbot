@@ -1,5 +1,11 @@
+"""This module contains the TriggerBase class, which is a singleton class that is used as a base 
+class for all triggers."""
+
+
 class Singleton(type):
-    _instances = {}
+    """Singleton metaclass."""
+
+    _instances: dict[type, object] = {}
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
@@ -8,4 +14,4 @@ class Singleton(type):
 
 
 class TriggerBase(metaclass=Singleton):
-    pass
+    """Base class for all triggers."""

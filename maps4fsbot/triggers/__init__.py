@@ -1,1 +1,8 @@
-from maps4fsbot.triggers.messages import AngleBasedTrigger, ErrorsTrigger, QgisTrigger
+# pylint: disable=missing-module-docstring
+
+from maps4fsbot.triggers.messages import (
+    AngleBasedTrigger,
+    ErrorsTrigger,
+    NoModTrigger,
+    QgisTrigger,
+)

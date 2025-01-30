@@ -26,28 +26,13 @@ jobs:
           pip install -r dev/requirements.txt
 
       - name: Run mypy to generate cache
-        run: mypy maps4fs || true
+        run: mypy maps4fsbot || true
 
       - name: Install missing stub packages
         run: mypy --install-types --non-interactive
 
       - name: Run mypy
-        run: mypy maps4fs
+        run: mypy maps4fsbot
 
       - name: Run pylint
-        run: pylint maps4fs
-
-      - name: Run pytest with coverage
-        run: pytest --cov=maps4fs/generator --cov-report xml --cov-config=.coveragerc
-
-      - name: Download Code Climate test-reporter
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-
-      - name: Upload coverage data to Code Climate
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        run: |
-          ./cc-test-reporter after-build --exit-code 0 -t coverage.py --prefix /home/runner/work/maps4fs/maps4fs/
+        run: pylint maps4fsbot

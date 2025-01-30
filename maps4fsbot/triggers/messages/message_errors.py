@@ -1,7 +1,11 @@
+"""Module for the ErrorsTrigger class."""
+
 from maps4fsbot.triggers.messages.message_base import MessageTrigger
 
 
 class ErrorsTrigger(MessageTrigger):
+    """Trigger for messages that mention errors or issues."""
+
     _keywords = ["error", "exception", "problem", "bug", "issue", "crash", "have"]
     _response = (
         "make sure that you have checked out the [docs](<https://github.com/iwatkot/maps4fs/tree/"

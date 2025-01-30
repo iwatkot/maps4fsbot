@@ -1,3 +1,5 @@
+"""Base class for message triggers."""
+
 from __future__ import annotations
 
 from discord import Message
@@ -7,10 +9,12 @@ from maps4fsbot.triggers.trigger_base import TriggerBase
 
 
 class MessageTrigger(TriggerBase):
+    """Base class for message triggers."""
+
     _keywords: list[str] = []
     _occurrences: int = 1
     _exclude_channels: list[str] = [Channels.suggest_feature]
-    _exclude_roles: list[str] = []  # [Roles.admin, Roles.moderator]
+    _exclude_roles: list[str] = [Roles.admin, Roles.moderator]
     _response: str | None = None
     _timeout: int = 120
     _last_triggered: int = 0
@@ -82,11 +86,11 @@ class MessageTrigger(TriggerBase):
         return self._last_triggered
 
     @classmethod
-    def get_subclasses(cls) -> list[type[MessageTriggerBase]]:
+    def get_subclasses(cls) -> list[type[MessageTrigger]]:
         """Returns a list of all subclasses of the class.
 
         Returns:
-            list[type[MessageTriggerBase]]: A list of all subclasses of the class.
+            list[type[MessageTrigger]]: A list of all subclasses of the class.
         """
         return cls.__subclasses__()
 
@@ -104,10 +108,10 @@ class MessageTrigger(TriggerBase):
         if cls._last_triggered + cls._timeout > message.created_at.timestamp():
             return False
 
-        if message.channel.name in cls._exclude_channels:
+        if message.channel.name in cls._exclude_channels:  # type: ignore
             return False
 
-        for role in message.author.roles:
+        for role in message.author.roles:  # type: ignore
             if role.name in cls._exclude_roles:
                 return False
 
@@ -115,7 +119,7 @@ class MessageTrigger(TriggerBase):
         for keyword in cls._keywords:
             count += message.content.lower().count(keyword.lower())
             if count >= cls._occurrences:
-                cls._last_triggered = message.created_at.timestamp()
+                cls._last_triggered = int(message.created_at.timestamp())
                 return True
 
         return False
@@ -133,3 +137,4 @@ class MessageTrigger(TriggerBase):
         for trigger in cls.get_subclasses():
             if trigger().trigger(message):
                 return trigger().response
+        return None
