@@ -1,1 +1,3 @@
+from maps4fsbot.triggers.messages.message_anglebased import AngleBasedTrigger
 from maps4fsbot.triggers.messages.message_errors import ErrorsTrigger
+from maps4fsbot.triggers.messages.message_qgis import QgisTrigger
