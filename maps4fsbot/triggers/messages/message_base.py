@@ -2,16 +2,17 @@ from __future__ import annotations
 
 from discord import Message
 
+from maps4fsbot.config import Channels, Roles
 from maps4fsbot.triggers.trigger_base import TriggerBase
 
 
 class MessageTrigger(TriggerBase):
     _keywords: list[str] = []
     _occurrences: int = 1
-    _exclude_channels: list[str] = []
-    _exclude_roles: list[str] = []
+    _exclude_channels: list[str] = [Channels.suggest_feature]
+    _exclude_roles: list[str] = []  # [Roles.admin, Roles.moderator]
     _response: str | None = None
-    _timeout: int = 0
+    _timeout: int = 120
     _last_triggered: int = 0
 
     @property
