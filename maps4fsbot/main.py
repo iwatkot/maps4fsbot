@@ -34,6 +34,7 @@ async def on_member_join(member: discord.Member) -> None:
     Arguments:
         member (discord.Member): The member that joined the server.
     """
+    print(f"{member} joined the server.")
     channel = discord.utils.get(member.guild.text_channels, name="welcome")
     if channel:
         await channel.send(f"{member.mention} {Messages.welcome}")
