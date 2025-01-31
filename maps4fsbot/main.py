@@ -10,6 +10,7 @@ from maps4fsbot.triggers.messages.message_base import MessageTrigger
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = commands.Bot(command_prefix="/", intents=intents)
 
@@ -34,7 +35,6 @@ async def on_member_join(member: discord.Member) -> None:
     Arguments:
         member (discord.Member): The member that joined the server.
     """
-    print(f"{member} joined the server.")
     channel = discord.utils.get(member.guild.text_channels, name="welcome")
     if channel:
         await channel.send(f"{member.mention} {Messages.welcome}")
