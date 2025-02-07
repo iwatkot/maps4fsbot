@@ -4,9 +4,17 @@
 class Messages:
     """Templates for the bot messages."""
 
+    user_check = (
+        "please reply to this message with the name of the tool about which this Discord server "
+        "is dedicated to access the rest of the server.\n"
+        "Unless you do this, you won't be able to see the rest of the channels."
+    )
+
+    user_check_answer = "maps4fs"
+
     welcome = (
-        "welcome to the maps4fs Dicord server!\nMake sure that you have read the [docs](<https://"
-        "github.com/iwatkot/maps4fs/tree/main/docs>) section before asking any questions."
+        "welcome to the maps4fs Dicord server!\nGet familiar with the [docs](<https://"
+        "github.com/iwatkot/maps4fs/tree/main/docs>) before asking any questions."
     )
 
     docs = (
@@ -43,4 +51,10 @@ class Messages:
     structure = (
         "Here's a link to the [correct file structure](<https://github.com/iwatkot/maps4fs/blob/"
         "main/docs/FAQ.md#the-game-cant-see-the-map-mod-what-should-i-do>) for the mod archive."
+    )
+
+    faq = "Here's a link to the [FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ.md>)."
+    docker_faq = (
+        "Here's a link to the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/"
+        "docs/FAQ_docker.md>)."
     )
