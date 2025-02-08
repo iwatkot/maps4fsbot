@@ -28,7 +28,7 @@ async def on_message(message: discord.Message) -> None:
                 role = discord.utils.get(message.guild.roles, name="Unverified")  # type: ignore
                 await message.author.remove_roles(role)  # type: ignore
                 await message.channel.send(f"{message.author.mention} {Messages.welcome}")
-        return
+                return
 
     response = MessageTrigger.get_response(message)
     if response:
