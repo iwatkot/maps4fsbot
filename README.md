@@ -3,7 +3,7 @@
 </a>
 
 <p align="center">
-    <a href="#launch-in-docker">Lanuch in Docker</a> •
+    <a href="#launch-in-docker">Launch in Docker</a> •
     <a href="https://manage.maps4fs.xyz/">Portainer Management</a> •
     <a href="https://stats.maps4fs.xyz/">Statistics Management</a> •
     <a href="https://stats.maps4fs.xyz/public/dashboard/f8defe6a-09db-4db1-911f-b6b02075d4b2">Public Statistics</a>
