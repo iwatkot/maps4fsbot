@@ -58,3 +58,9 @@ class Messages:
         "Here's a link to the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/"
         "docs/FAQ_docker.md>)."
     )
+
+    apikey_sent = "Your API key has been sent to you in a private message."
+    apikey_error = (
+        "I can't send you a private message. "
+        "Please check your privacy settings and allow direct messages from server members."
+    )

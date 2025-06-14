@@ -4,9 +4,11 @@ import discord
 from discord.ext import commands
 from discord.ext.commands.context import Context
 
+from maps4fsbot.api_key import generate_api_key
 from maps4fsbot.config import DISCORD_TOKEN
 from maps4fsbot.templates import Messages
-from maps4fsbot.triggers.messages.message_base import MessageTrigger
+
+# from maps4fsbot.triggers.messages.message_base import MessageTrigger
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -22,17 +24,20 @@ async def on_message(message: discord.Message) -> None:
     Arguments:
         message (discord.Message): The message that was sent in a channel the bot can see.
     """
-    if message.channel.name == "welcome":  # type: ignore
-        if "Unverified" in [role.name for role in message.author.roles]:  # type: ignore
-            if message.content.lower().strip() == Messages.user_check_answer:
-                role = discord.utils.get(message.guild.roles, name="Unverified")  # type: ignore
-                await message.author.remove_roles(role)  # type: ignore
-                await message.channel.send(f"{message.author.mention} {Messages.welcome}")
-                return
+    try:
+        if message.channel.name == "welcome":  # type: ignore
+            if "Unverified" in [role.name for role in message.author.roles]:  # type: ignore
+                if message.content.lower().strip() == Messages.user_check_answer:
+                    role = discord.utils.get(message.guild.roles, name="Unverified")  # type: ignore
+                    await message.author.remove_roles(role)  # type: ignore
+                    await message.channel.send(f"{message.author.mention} {Messages.welcome}")
+                    return
+    except Exception as e:
+        print(f"Error processing message in welcome channel: {e}")
 
-    response = MessageTrigger.get_response(message)
-    if response:
-        await message.channel.send(f"{message.author.mention} {response}")
+    # response = MessageTrigger.get_response(message)
+    # if response:
+    #     await message.channel.send(f"{message.author.mention} {response}")
     await bot.process_commands(message)
 
 
@@ -48,6 +53,28 @@ async def on_member_join(member: discord.Member) -> None:
         await channel.send(f"{member.mention} {Messages.user_check}")
         role = discord.utils.get(member.guild.roles, name="Unverified")
         await member.add_roles(role)  # type: ignore
+
+
+@bot.command()
+async def apikey(ctx: Context) -> None:
+    """Generates a new API key for the user and sends as a private message.
+    This command can only be used in the "api-keys" channel.
+
+    Arguments:
+        ctx (Context): The context of the command invocation.
+    """
+
+    if ctx.channel.name != "api-keys":  # type: ignore
+        return
+
+    user_id = ctx.author.id
+    api_key = generate_api_key(user_id)
+
+    try:
+        await ctx.author.send(f"Your API key is: `{api_key}`")
+        await ctx.send(f"{ctx.author.mention} {Messages.apikey_sent}")
+    except discord.Forbidden:
+        await ctx.send(f"{ctx.author.mention} {Messages.apikey_error}")
 
 
 @bot.command()
