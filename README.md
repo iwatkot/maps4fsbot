@@ -1,3 +1,13 @@
+<p align="center">
+<a href="https://github.com/iwatkot/maps4fs">maps4fs</a> •
+<a href="https://github.com/iwatkot/maps4fsui">maps4fs UI</a> •
+<a href="https://github.com/iwatkot/maps4fsapi">maps4fs API</a> •
+<a href="https://github.com/iwatkot/maps4fsstats">maps4fs Stats</a> •
+<a href="https://github.com/iwatkot/maps4fsbot">maps4fs Bot</a><br>
+<a href="https://github.com/iwatkot/pygmdl">pygmdl</a> •
+<a href="https://github.com/iwatkot/pydtmdl">pydtmdl</a>
+</p>
+
 <div align="center" markdown>
 <img src="https://github.com/user-attachments/assets/62cd4824-ab72-42f4-af54-0bc70e00dd00">
 </a>
