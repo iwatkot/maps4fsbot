@@ -13,8 +13,30 @@ class Messages:
     user_check_answer = "maps4fs"
 
     welcome = (
-        "welcome to the maps4fs Dicord server!\nGet familiar with the [docs](<https://"
-        "github.com/iwatkot/maps4fs/tree/main/docs>) before asking any questions."
+        ", welcome to the maps4fs Dicord server!\n"
+        "You can now access the rest of the channels.\n"
+        "The public version of the app is available at: [maps4fs.xyz](<https://maps4fs.xyz>).\n"
+        "Please, read the [FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ.md>) "
+        "and the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ_docker.md>) "
+        "before asking any questions. \n"
+        "Support the project at [BuyMeACoffee](<https://www.buymeacoffee.com/iwatkot>) "
+        "or [Patreon](<https://www.patreon.com/iwatkot>).\n"
+        "It's also recommended to check out the YouTube tutorials in this [playlist]"
+        "(<https://www.youtube.com/playlist?list=PLug0g7UYHX8D1Jik6NkJjQhdxqS-NOtB9>) "
+        "and get familiar with other [docs](<https://github.com/iwatkot/maps4fs/tree/main/docs>).\n"
+        "If you're planning to report a bug, read the pinned message in the "
+        "`#bug-reports` channel first. Incorrectly formatted bug reports will be deleted.\n"
+        "If the issue is related to the DTM Provider, please note that the author of the "
+        "tool maintaining only the SRTM provider, all other DTM Providers are "
+        "community maintained and may not work properly. In this case, "
+        "you can try to ask the author of the specific DTM Provider for help.\n\n"
+        "Useful links:\n"
+        "- [Maps4FS API](<https://github.com/iwatkot/maps4fsapi>). If you need an API key for the "
+        "public version of the app, check out the `#api-keys` channel.\n"
+        "- [pydtmdl](<https://github.com/iwatkot/pydtmdl>) - list of available DTM Providers with "
+        "their authors.\n"
+        "- [Create a Farming Simulator map in 10 steps](<https://github.com/iwatkot/maps4fs/blob/main/docs/step_by_step.md>)\n"
+        "- [How to use Maps4FS effectively](<https://github.com/iwatkot/maps4fs/blob/main/docs/recommendations.md>)\n"
     )
 
     docs = (
