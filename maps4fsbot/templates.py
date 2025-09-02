@@ -86,3 +86,7 @@ class Messages:
         "I can't send you a private message. "
         "Please check your privacy settings and allow direct messages from server members."
     )
+    local_docs = "Here's a link to the [Local Deployment Documentation](<https://github.com/iwatkot/maps4fs/blob/main/docs/local_deployment.md>)."
+    local_troubleshoot = "Here's a link to the [Local Troubleshooting Guide](<https://github.com/iwatkot/maps4fs/blob/main/docs/local_deployment.md#troubleshooting>)."
+
+    get_help = "Here's a link to the [Get Help](<https://github.com/iwatkot/maps4fs/blob/main/docs/get_help.md>)."

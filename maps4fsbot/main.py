@@ -131,4 +131,22 @@ async def dockerfaq(ctx: Context) -> None:
     await ctx.send(Messages.docker_faq)
 
 
+@bot.command()
+async def localdocs(ctx: Context) -> None:
+    """Sends a link to the documentation about local deployment."""
+    await ctx.send(Messages.local_docs)
+
+
+@bot.command()
+async def localtr(ctx: Context) -> None:
+    """Sends a link to the local troubleshooting guide."""
+    await ctx.send(Messages.local_troubleshoot)
+
+
+@bot.command()
+async def gethelp(ctx: Context) -> None:
+    """Sends a link to the Get Help page."""
+    await ctx.send(Messages.get_help)
+
+
 bot.run(DISCORD_TOKEN)  # type: ignore
