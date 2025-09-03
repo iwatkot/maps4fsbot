@@ -15,7 +15,7 @@ class Messages:
     welcome = (
         ", welcome to the maps4fs Dicord server!\n"
         "You can now access the rest of the channels.\n"
-        "The public version of the app is available at: [maps4fs.xyz](<https://maps4fs.xyz>).\n"
+        "The public version of the app is here: [maps4fs.xyz](<https://maps4fs.xyz>).\n"
         "Please, read the [FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ.md>) "
         "and the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ_docker.md>) "
         "before asking any questions. \n"
@@ -39,7 +39,6 @@ class Messages:
         "public version of the app, check out the `#api-keys` channel.\n"
         "- [pydtmdl](<https://github.com/iwatkot/pydtmdl>) - list of available DTM Providers with "
         "their authors.\n"
-        "- [Create a Farming Simulator map in 10 steps](<https://github.com/iwatkot/maps4fs/blob/main/docs/step_by_step.md>)\n"
         "- [How to use Maps4FS effectively](<https://github.com/iwatkot/maps4fs/blob/main/docs/recommendations.md>)\n"
     )
 
