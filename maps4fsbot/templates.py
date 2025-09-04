@@ -16,18 +16,17 @@ class Messages:
         ", welcome to the maps4fs Dicord server!\n"
         "You can now access the rest of the channels.\n"
         "The public version of the app is here: [maps4fs.xyz](<https://maps4fs.xyz>).\n"
-        "Please, read the [FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ.md>) "
-        "and the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ_docker.md>) "
+        "Please, read the [FAQ](<https://maps4fs.gitbook.io/docs/getting-started/faq>) "
         "before asking any questions. \n"
-        "⚠️ Check out detailed [Local Deployment](<https://github.com/iwatkot/maps4fs/blob/main/docs/local_deployment.md>) instructions "
+        "⚠️ Check out detailed [Local Deployment](<https://maps4fs.gitbook.io/docs/setup-and-installation/local_deployment>) instructions "
         "to run the tool locally.\n"
-        "⚠️ Carefully read the [Get Help](<https://github.com/iwatkot/maps4fs/blob/main/docs/get_help.md>) documentation "
+        "⚠️ Carefully read the [Get Help](<https://maps4fs.gitbook.io/docs/setup-and-installation/get_help>) documentation "
         "before asking for help. Requests without following the guide may be ignored.\n"
         "Support the project at [BuyMeACoffee](<https://www.buymeacoffee.com/iwatkot>) "
         "or [Patreon](<https://www.patreon.com/iwatkot>).\n"
         "It's also recommended to check out the YouTube tutorials in this [playlist]"
         "(<https://www.youtube.com/playlist?list=PLug0g7UYHX8D1Jik6NkJjQhdxqS-NOtB9>) "
-        "and get familiar with other [docs](<https://github.com/iwatkot/maps4fs/tree/main/docs>).\n"
+        "and get familiar with other [docs](<https://maps4fs.gitbook.io/docs>).\n"
         "If you're planning to report a bug, read the pinned message in the "
         "`#bug-reports` channel first. Incorrectly formatted bug reports will be deleted.\n"
         "If the issue is related to the DTM Provider, please note that the author of the "
@@ -39,57 +38,35 @@ class Messages:
         "public version of the app, check out the `#api-keys` channel.\n"
         "- [pydtmdl](<https://github.com/iwatkot/pydtmdl>) - list of available DTM Providers with "
         "their authors.\n"
-        "- [How to use Maps4FS effectively](<https://github.com/iwatkot/maps4fs/blob/main/docs/recommendations.md>)\n"
+        "- [How to use Maps4FS effectively](<https://maps4fs.gitbook.io/docs/getting-started/workflow_optimizations>)\n"
     )
 
-    docs = (
-        "Here's a link to the [docs](<https://github.com/iwatkot/maps4fs/tree/main/docs>) section."
-    )
+    docs = "Here's a link to the [docs](<https://maps4fs.gitbook.io/docs>) section."
 
-    schema = (
-        "Here's a link to the [texture schema](<https://github.com/iwatkot/maps4fs/blob/main/"
-        "README.md#Texture-schema>) explanation."
-    )
+    schema = "Here's a link to the [texture schema](<https://maps4fs.gitbook.io/docs/understanding-the-basics/texture_schema>) explanation."
 
-    settings = (
-        "Here's a link to the [advanced settings](<https://github.com/iwatkot/maps4fs/blob/main/"
-        "README.md#Advanced-settings>) of the generator."
-    )
-
-    expert = (
-        "Here's a link to the [expert settings](<https://github.com/iwatkot/maps4fs/blob/main/"
-        "README.md#Expert-settings>) of the generator."
-    )
+    settings = "Here's a link to the [generation settings](<https://maps4fs.gitbook.io/docs/understanding-the-basics/generation_settings>) of the generator."
 
     debugge = (
-        "Here's a link to the [debugging](<https://github.com/iwatkot/maps4fs/blob/main/docs/"
-        "FAQ.md#giants-editor-crashes-when-i-try-to-open-the-map-what-should-i-do>) instructions "
+        "Here's a link to the [debugging](<https://maps4fs.gitbook.io/docs/getting-started/faq#giants-editor-crashes-when-opening-map>) instructions "
         "for Giants Editor."
     )
 
     debuggame = (
-        "Here's a link to the [debugging](<https://github.com/iwatkot/maps4fs/blob/main/docs/"
-        "FAQ.md#game-is-crashing-or-hangs-when-i-try-to-load-the-map-what-should-i-do>) "
+        "Here's a link to the [debugging](<https://maps4fs.gitbook.io/docs/getting-started/faq#game-crashes-or-hangs-when-loading-map>) "
         "instructions for the Farming Simulator game."
     )
 
-    structure = (
-        "Here's a link to the [correct file structure](<https://github.com/iwatkot/maps4fs/blob/"
-        "main/docs/FAQ.md#the-game-cant-see-the-map-mod-what-should-i-do>) for the mod archive."
-    )
+    structure = "Here's a link to the [correct file structure](<https://maps4fs.gitbook.io/docs/getting-started/faq#mod-installation-issues>) for the mod archive."
 
-    faq = "Here's a link to the [FAQ](<https://github.com/iwatkot/maps4fs/blob/main/docs/FAQ.md>)."
-    docker_faq = (
-        "Here's a link to the [Docker FAQ](<https://github.com/iwatkot/maps4fs/blob/main/"
-        "docs/FAQ_docker.md>)."
-    )
+    faq = "Here's a link to the [FAQ](<https://maps4fs.gitbook.io/docs/getting-started/faq>)."
 
     apikey_sent = "Your API key has been sent to you in a private message."
     apikey_error = (
         "I can't send you a private message. "
         "Please check your privacy settings and allow direct messages from server members."
     )
-    local_docs = "Here's a link to the [Local Deployment Documentation](<https://github.com/iwatkot/maps4fs/blob/main/docs/local_deployment.md>)."
-    local_troubleshoot = "Here's a link to the [Local Troubleshooting Guide](<https://github.com/iwatkot/maps4fs/blob/main/docs/local_deployment.md#troubleshooting>)."
+    local_docs = "Here's a link to the [Local Deployment Documentation](<https://maps4fs.gitbook.io/docs/setup-and-installation/local_deployment>)."
+    local_troubleshoot = "Here's a link to the [Local Troubleshooting Guide](<https://maps4fs.gitbook.io/docs/setup-and-installation/local_deployment#troubleshooting>)."
 
-    get_help = "Here's a link to the [Get Help](<https://github.com/iwatkot/maps4fs/blob/main/docs/get_help.md>)."
+    get_help = "Here's a link to the [Get Help](<https://maps4fs.gitbook.io/docs/setup-and-installation/get_help>)."
