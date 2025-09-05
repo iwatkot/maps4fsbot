@@ -96,12 +96,6 @@ async def settings(ctx: Context) -> None:
 
 
 @bot.command()
-async def expert(ctx: Context) -> None:
-    """Sends a link to the expert settings."""
-    await ctx.send(Messages.expert)
-
-
-@bot.command()
 async def debugge(ctx: Context) -> None:
     """Sends a link to the instructions for debugging Giants Editor."""
     await ctx.send(Messages.debugge)
@@ -123,12 +117,6 @@ async def structure(ctx: Context) -> None:
 async def faq(ctx: Context) -> None:
     """Sends a link to the FAQ."""
     await ctx.send(Messages.faq)
-
-
-@bot.command()
-async def dockerfaq(ctx: Context) -> None:
-    """Sends a link to the Docker FAQ."""
-    await ctx.send(Messages.docker_faq)
 
 
 @bot.command()
