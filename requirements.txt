@@ -1,2 +1,9 @@
 discord.py
-audioop-lts
+# audioop-lts
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+langchain-core>=0.2.0
+langchain-chroma>=0.1.0
+langchain-ollama>=0.1.0
+chromadb>=0.4.0
+pathlib

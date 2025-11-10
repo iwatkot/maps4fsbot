@@ -6,9 +6,8 @@ from discord.ext.commands.context import Context
 
 from maps4fsbot.api_key import generate_api_key
 from maps4fsbot.config import DISCORD_TOKEN
+from maps4fsbot.llm_answer import answer_question
 from maps4fsbot.templates import Messages
-
-# from maps4fsbot.triggers.messages.message_base import MessageTrigger
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -24,6 +23,10 @@ async def on_message(message: discord.Message) -> None:
     Arguments:
         message (discord.Message): The message that was sent in a channel the bot can see.
     """
+    # Ignore messages from the bot itself
+    if message.author == bot.user:
+        return
+
     try:
         if message.channel.name == "welcome":  # type: ignore
             if "Unverified" in [role.name for role in message.author.roles]:  # type: ignore
@@ -35,9 +38,43 @@ async def on_message(message: discord.Message) -> None:
     except Exception as e:
         print(f"Error processing message in welcome channel: {e}")
 
-    # response = MessageTrigger.get_response(message)
-    # if response:
-    #     await message.channel.send(f"{message.author.mention} {response}")
+    # Check if the bot was mentioned and respond with LLM
+    try:
+        if bot.user.mentioned_in(message):  # type: ignore
+            try:
+                # Extract the question by removing the bot mention
+                question = message.content
+                for mention in message.mentions:
+                    if mention == bot.user:
+                        question = question.replace(f"<@{mention.id}>", "").replace(
+                            f"<@!{mention.id}>", ""
+                        )
+
+                question = question.strip()
+
+                if (
+                    question
+                ):  # Only respond if there's actually a question after removing the mention
+                    # Show typing indicator while processing
+                    async with message.channel.typing():
+                        answer = answer_question(question)
+
+                    # Split long answers if they exceed Discord's message limit
+                    if len(answer) > 2000:
+                        chunks = [answer[i : i + 1900] for i in range(0, len(answer), 1900)]
+                        for chunk in chunks:
+                            await message.channel.send(chunk)
+                    else:
+                        await message.channel.send(answer)
+
+            except Exception as e:
+                print(f"Error processing LLM question: {e}")
+                await message.channel.send(
+                    "Sorry, I encountered an error while processing your question."
+                )
+    except Exception as e:
+        print(f"Error checking bot mention: {e}")
+
     await bot.process_commands(message)
 
 
