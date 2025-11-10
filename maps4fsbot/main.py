@@ -1,5 +1,7 @@
 """Main file for the bot."""
 
+import asyncio
+
 import discord
 from discord.ext import commands
 from discord.ext.commands.context import Context
@@ -57,20 +59,27 @@ async def on_message(message: discord.Message) -> None:
                 ):  # Only respond if there's actually a question after removing the mention
                     # Show typing indicator while processing
                     async with message.channel.typing():
-                        answer = answer_question(question)
+                        # Run the LLM processing in a thread pool to avoid blocking
+
+                        loop = asyncio.get_event_loop()
+                        answer = await loop.run_in_executor(None, answer_question, question)
 
                     # Split long answers if they exceed Discord's message limit
-                    if len(answer) > 2000:
-                        chunks = [answer[i : i + 1900] for i in range(0, len(answer), 1900)]
-                        for chunk in chunks:
-                            await message.channel.send(chunk)
+                    user_mention = message.author.mention
+                    if len(answer) > 1900:  # Leave room for user mention
+                        chunks = [answer[i : i + 1800] for i in range(0, len(answer), 1800)]
+                        for i, chunk in enumerate(chunks):
+                            if i == 0:
+                                await message.channel.send(f"{user_mention} {chunk}")
+                            else:
+                                await message.channel.send(chunk)
                     else:
-                        await message.channel.send(answer)
+                        await message.channel.send(f"{user_mention} {answer}")
 
             except Exception as e:
                 print(f"Error processing LLM question: {e}")
                 await message.channel.send(
-                    "Sorry, I encountered an error while processing your question."
+                    f"{message.author.mention} Sorry, I encountered an error while processing your question."
                 )
     except Exception as e:
         print(f"Error checking bot mention: {e}")
