@@ -43,6 +43,10 @@ EMBEDDING_MODEL = "nomic-embed-text"  # For retrieval
 LLM_MODEL = "llama3.2:3b"  # Balanced lightweight model - good quality/speed tradeoff
 TOP_K_RESULTS = 8  # Number of relevant chunks to retrieve
 
+# Ollama configuration - use environment variable or default to localhost
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+print(f"Ollama base URL: {OLLAMA_BASE_URL}")
+
 
 def ensure_chroma_db():
     """Ensure that the Chroma DB directory exists, downloading if necessary."""
@@ -74,4 +78,6 @@ def ensure_chroma_db():
             print("Please manually clone the repository or create the chroma_db folder.")
 
 
-ensure_chroma_db()
+# Skip auto-download in containerized environments where chroma_db should be pre-built
+if os.getenv("SKIP_CHROMA_DOWNLOAD") != "1":
+    ensure_chroma_db()

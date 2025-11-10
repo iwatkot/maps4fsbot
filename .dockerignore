@@ -1,0 +1,11 @@
+chroma_db/
+.venv/
+__pycache__/
+.git/
+.vscode/
+local.env
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache

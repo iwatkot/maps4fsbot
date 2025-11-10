@@ -27,6 +27,8 @@ jobs:
           iwatkot/maps4fsbot:latest
           iwatkot/maps4fsbot:${{ github.ref_name }}
         file: ./Dockerfile
+        build-args: |
+          CHROMA_GITHUB_TOKEN=${{ secrets.CHROMA_GITHUB_TOKEN }}
 
   deploy:
 

@@ -9,7 +9,13 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
-from maps4fsbot.config import CHROMA_DB_DIR, EMBEDDING_MODEL, LLM_MODEL, TOP_K_RESULTS
+from maps4fsbot.config import (
+    CHROMA_DB_DIR,
+    EMBEDDING_MODEL,
+    LLM_MODEL,
+    OLLAMA_BASE_URL,
+    TOP_K_RESULTS,
+)
 
 # Enhanced prompt to prevent hallucinations and provide accurate information
 PROMPT_TEMPLATE = """You are a technical support assistant for maps4fs, which is a web application for creating custom maps for Farming Simulator games.
@@ -57,12 +63,14 @@ def answer_question(question: str) -> str:
     print("\nLoading knowledge base...")
 
     # Load embeddings and vector store
-    embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
+    embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=OLLAMA_BASE_URL)
     vectorstore = Chroma(persist_directory=CHROMA_DB_DIR, embedding_function=embeddings)
 
     # Initialize LLM
     print("Initializing model...")
-    llm = OllamaLLM(model=LLM_MODEL, temperature=0.2)  # Low temperature for factual answers
+    llm = OllamaLLM(
+        model=LLM_MODEL, temperature=0.2, base_url=OLLAMA_BASE_URL
+    )  # Low temperature for factual answers
 
     # Setup retriever
     retriever = vectorstore.as_retriever(
