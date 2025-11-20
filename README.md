@@ -14,7 +14,7 @@
 </div>
 
 <div align="center" markdown>
-<img src="https://github.com/user-attachments/assets/62cd4824-ab72-42f4-af54-0bc70e00dd00">
+<img src="https://github.com/iwatkot/maps4fsbot/releases/download/0.2.1/bot-1280-640.png">
 </a>
 
 <p align="center">
