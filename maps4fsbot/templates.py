@@ -19,7 +19,7 @@ class Messages:
         "Please, read the [FAQ](<https://maps4fs.gitbook.io/docs/getting-started/faq>) "
         "before asking any questions. \n"
         "💬 **NEW**: Ask me questions by tagging @maps4fsbot followed by your question!\n\n"
-        "📥 **NEW**: Download the standalone [Windows app]((<https://maps4fs.xyz/download>)), no Docker required!\n\n"
+        "📥 **NEW**: Download the standalone [Windows app](<https://maps4fs.xyz/download>), no Docker required!\n\n"
         "⚠️ Carefully read the [Get Help](<https://maps4fs.gitbook.io/docs/setup-and-installation/get_help>) documentation "
         "before asking for help. Requests without following the guide may be ignored.\n"
         "Support the project at [BuyMeACoffee](<https://www.buymeacoffee.com/iwatkot>) "
